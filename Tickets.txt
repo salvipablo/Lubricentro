@@ -1,1 +1,2 @@
 T#001 - Initial commit - Starting express server and environment variables.
+T#002 - Basic routing - Creation of basic routes, for functional tests. Preparation of directories for how they are going to be used.
