@@ -17,6 +17,7 @@ app.set('view engine', 'ejs');
 // Middlewares.
 app.use(express.json())
 app.use(morgan('tiny'))
+app.use(express.static(join(__dirname, 'public')))
 
 // Routes.
 app.use("/products", productsRouter);

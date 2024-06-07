@@ -4,9 +4,44 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <link rel="stylesheet" href="stylesheets/table-material.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/images/oiler.png" type="image/x-icon">
+
   <title><%= tabTitle %></title>
 </head>
 <body>
-  <h1><%= mainTitle %></h1>
+
+  <h1 class="mainTitle"><%= mainTitle %></h1>
+
+  <div class="tableContainer">
+    <table class="tableData">
+      <tr class="tableData-row">
+        <th class="tableData-th1 borderRow">ID</th>
+        <th class="tableData-th2 borderRow">Descripcion</th>
+        <th class="tableData-th3 borderRow">Marca</th>
+        <th class="tableData-th4 borderRow">Stock</th>
+        <th class="tableData-th5 borderRow">VALOR STOCK</th>
+        <th class="tableData-th6 borderRow">Editar</th>
+        <th class="tableData-th7 borderRow">Eliminar</th>
+      </tr>
+      <% products.forEach(function(product){ %>
+        <tr class="tableData-row">
+          <td class="tabledata-cell borderRow center"><%- product.id  %></td>
+          <td class="tabledata-cell borderRow"><%- product.description  %></td>
+          <td class="tabledata-cell borderRow center"><%- product.brand  %></td>
+          <td class="tabledata-cell borderRow center"><%- product.amount  %></td>
+          <td class="tabledata-cell borderRow center">$&nbsp;<%- product.priceWNIva  %></td>
+          <td class="tabledata-cell borderRow center"><img class="imgModify" src="/images/pen.png" alt="Mod"></td>
+          <td class="tabledata-cell borderRow center"><img class="imgDelete" src="/images/remove.png" alt="Del"></td>
+        </tr>
+      <% }); %>
+    </table>
+  </div>
+
 </body>
 </html>
