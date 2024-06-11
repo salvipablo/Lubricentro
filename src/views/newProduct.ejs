@@ -6,6 +6,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="/stylesheets/general.css">
+  <link rel="stylesheet" href="/stylesheets/newProduct.css">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="/images/oiler.png" type="image/x-icon">
@@ -13,6 +14,28 @@
   <title><%= tabTitle %></title>
 </head>
 <body>
-  <h1>Nuevo Producto</h1>
+  <h1 class="mainTitle">Nuevo Producto</h1>
+
+  <form id="frmNewProduct" class="frmNewProduct">
+    <div class="cntField">
+      <label class="lbl" for="txtDescription">Descripcion de producto:</label>
+      <input class="input" type="text" name="description" id="txtDescription">
+    </div>
+    <div class="cntField">
+      <label class="lbl" for="txtBrand">Marca de producto:</label>
+      <input class="input" type="text" name="brand" id="txtBrand">
+    </div>
+    <div class="cntField">
+      <label class="lbl" for="txtStock">Stock de producto:</label>
+      <input class="input" type="number" name="stock" id="txtStock">
+    </div>
+    <div class="cntField">
+      <label class="lbl" for="txtPriceWNIva">Precio sin IVA:</label>
+      <input class="input" type="number" name="priceWNIva" id="txtPriceWNIva">
+    </div>
+    <button id="btnEnviar" class="btn">Cargar Producto</button>
+  </form>
+
+  <script src="/js/newProduct.js"></script>
 </body>
 </html>
