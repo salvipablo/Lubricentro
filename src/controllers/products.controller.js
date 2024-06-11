@@ -20,6 +20,14 @@ export const GetProducts = async (_req, res) => {
   }
 }
 
+export const pageNewProduct = (_req, res) => {
+  let dataPage = {
+    dataStatic
+  }
+
+  res.render('newProduct', dataPage)
+}
+
 export const SaveProduct = async(req, res) => {
   try {
     const { description, brand, stock, priceWNIva } = req.body

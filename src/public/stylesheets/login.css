@@ -1,0 +1,72 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+  color: #faebd7;
+}
+
+body {
+  background-image: url('../images/Background_Login.jpg');
+  background-size: cover; /* Asegura que la imagen cubra todo el espacio */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.login-form {
+  backdrop-filter: blur(10px);
+  background-color: rgba(87, 82, 76, 0.2);
+  width: 300px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  margin: auto;
+  margin-top: 2em;
+}
+
+.frmTitle {
+  text-align: center;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-container input {
+  padding-right: 120px; /* Espacio para el ícono */
+  margin-bottom: 1em;
+}
+
+.input-container .icon {
+  position: absolute;
+  right: 10px; /* Ajusta esta distancia según sea necesario */
+  pointer-events: none; /* Hace que el ícono no sea interactivo */
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #d4b3b3;
+  padding: 10px 0 10px 0;
+}
+
+.input::placeholder {
+  color: #bbb4b4;
+}
+
+.input:focus {
+  border: none;
+  background-color: red;
+}
+
+.btnSubmit {
+  padding: 20px 0 20px 0;
+  border: none;
+  border-radius: 10px;
+  margin-top: 1em;
+}

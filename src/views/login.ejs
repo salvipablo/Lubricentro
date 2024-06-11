@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/images/oiler.png" type="image/x-icon">
+
+  <title><%= dataStatic.tabTitle %></title>
+</head>
+<body>
+
+  <form class="login-form">
+    <h2 class="frmTitle">Login</h2>
+    <div class="input-container">
+      <input class="input" type="text" name="username" id="txtUserName" placeholder="Ingrese su usuario">
+      <span class="icon"><i class="fas fa-user"></i></span>
+    </div>
+    <div class="input-container">
+      <input class="input" type="password" name="password" id="txtPassword" placeholder="Ingrese su contrseña">
+      <span class="icon"><i class="fas fa-lock"></i></span>
+    </div>
+    <input class="btnSubmit" type="submit" value="Login">
+</form>
+
+</body>
+</html>

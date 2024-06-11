@@ -2,6 +2,7 @@ import { Router } from "express"
 
 import { 
   GetProducts,
+  pageNewProduct,
   SaveProduct
 } 
 from "../controllers/products.controller.js"
@@ -10,13 +11,7 @@ const productsRouter = Router()
 
 productsRouter.get('/', GetProducts)
 
-productsRouter.get('/newProduct', (_req, res) => {
-  let dataPage = {
-    tabTitle: "Lubricentro",
-  }
-
-  res.render('newProduct', dataPage)
-})
+productsRouter.get('/newProduct', pageNewProduct)
 
 productsRouter.post('/saveProduct', SaveProduct)
 

@@ -4,5 +4,6 @@ T#003 - EJS - Implementation of EJS, and that the route returns the first view o
 T#004 - Testing EJS - It was implemented that the information on the index page is dynamic through generated data.
 T#005 - BBDD - The application now connects to the SQlite database. The index page already takes the data from the database and the recording of a record is simulated.
 T#006 - New product form.
+T#007 - Login page.
 
 R#001 - Refactor BBDD - Refactoring of the code for connecting the database and data in environment variables.
