@@ -15,4 +15,6 @@ loginRouter.get('/', (_req, res) => {
   res.render('login', dataPage)
 })
 
+loginRouter.post('/login')
+
 export default loginRouter

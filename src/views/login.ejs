@@ -16,8 +16,14 @@
 </head>
 <body>
 
-  <form class="login-form">
-    <h2 class="frmTitle">Login</h2>
+  <nav class="cntNav">
+    <h1><%= dataStatic.mainTitle %></h1>
+    <p class="loginAccess" id="linkLogin">Iniciar Sesion</p>
+  </nav>
+
+  <form class="login-form closeFrmLogin" id="frmLogin">
+    <span class="cntIconClose"><i class="fa-solid fa-xmark iconClose" id="iconClose"></i></span>
+    <h2 class="frmTitle">LOGIN</h2>
     <div class="input-container">
       <input class="input" type="text" name="username" id="txtUserName" placeholder="Ingrese su usuario">
       <span class="icon"><i class="fas fa-user"></i></span>
@@ -26,8 +32,9 @@
       <input class="input" type="password" name="password" id="txtPassword" placeholder="Ingrese su contrseña">
       <span class="icon"><i class="fas fa-lock"></i></span>
     </div>
-    <input class="btnSubmit" type="submit" value="Login">
-</form>
+    <input id="btnLogin" class="btnSubmit" type="submit" value="Login">
+  </form>
 
+  <script src="/js/login.js"></script>
 </body>
 </html>
