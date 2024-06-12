@@ -8,3 +8,4 @@ T#007 - Login page.
 T#008 - Login - The user search was implemented in the database, but tokens or any data for validations were not saved in the front end.
 
 R#001 - Refactor BBDD - Refactoring of the code for connecting the database and data in environment variables.
+R#002 - Create Product - Refactoring for when there is an error during operations in the database, so that the user is informed and the backend does not crash.

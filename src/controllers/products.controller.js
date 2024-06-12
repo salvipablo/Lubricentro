@@ -1,3 +1,4 @@
+import e from "express";
 import { ProductSchema } from "../models/products.js";
 
 let dataStatic = {
@@ -28,22 +29,27 @@ export const pageNewProduct = (_req, res) => {
   res.render('newProduct', dataPage)
 }
 
-export const SaveProduct = async(req, res) => {
+export const SaveProduct = async (req, res) => {
   try {
     const { description, brand, stock, priceWNIva } = req.body
 
     let newProduct = {
-      id: 7,
+      id: 10,
       description: description,
       brand: brand,
       amount: stock,
       priceWNIva: priceWNIva
     }
 
-    ProductSchema.create(newProduct)
+    await ProductSchema.create(newProduct)
 
     res.status(201).json({ message: "Save register sucesfully" })
   } catch (error) {
-    res.status(500).json({ error: error.message })
+    let messageError = ''
+
+    if (!error.errors) messageError = error.message
+    else messageError = error.errors[0].message
+
+    res.status(500).json({ message: messageError })
   }
 }

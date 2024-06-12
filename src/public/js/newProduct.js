@@ -49,7 +49,10 @@ BtnEnviar.addEventListener('click', async (e) => {
   const dataOk = VerifyEnteredData()
 
   if (!dataOk) alert('Le falto cargar datos!!')
-  else alert(await sendData())
+  else {
+    const message = await sendData()
+    alert(message)
 
-  window.location.href = "http://localhost:3002/products";
+    if (message === 'Save register sucesfully') window.location.href = "http://localhost:3002/products";
+  }
 })
