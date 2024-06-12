@@ -38,7 +38,7 @@ BtnLogin.addEventListener('click', async (e) => {
   
     const Response = await Request.json()
 
-    if (Response.message === 'acepted') window.location.href = "http://localhost:3002/products";
-    else alert('Datos de usuario ingresados incorrectos...')
+    if (Response.message === 'Accepted user') window.location.href = "http://localhost:3002/products";
+    else alert(Response.error)
   }
 })

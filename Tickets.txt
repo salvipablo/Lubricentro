@@ -5,5 +5,6 @@ T#004 - Testing EJS - It was implemented that the information on the index page 
 T#005 - BBDD - The application now connects to the SQlite database. The index page already takes the data from the database and the recording of a record is simulated.
 T#006 - New product form.
 T#007 - Login page.
+T#008 - Login - The user search was implemented in the database, but tokens or any data for validations were not saved in the front end.
 
 R#001 - Refactor BBDD - Refactoring of the code for connecting the database and data in environment variables.
