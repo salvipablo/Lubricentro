@@ -41,7 +41,11 @@
           <td class="tabledata-cell borderRow center"><%- product.brand  %></td>
           <td class="tabledata-cell borderRow center"><%- product.amount  %></td>
           <td class="tabledata-cell borderRow center">$&nbsp;<%- product.priceWNIva  %></td>
-          <td class="tabledata-cell borderRow center"><img class="imgModify" src="/images/pen.png" alt="Mod"></td>
+          <td class="tabledata-cell borderRow center">
+            <a href="http://localhost:3002/products/modifyProduct/<%- product.id  %>">
+              <img class="imgModify" src="/images/pen.png" alt="Mod">
+            </a>
+          </td>
           <td class="tabledata-cell borderRow center"><img class="imgDelete" src="/images/remove.png" alt="Del"></td>
         </tr>
       <% }); %>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/general.css">
+  <link rel="stylesheet" href="/stylesheets/modifyProduct.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/images/oiler.png" type="image/x-icon">
+
+  <title><%= dataStatic.tabTitle %></title>
+</head>
+<body>
+  <h1 class="mainTitle">Modificar Producto</h1>
+
+  <input class="invisible" type="text" name="id" id="idProduct" value="<%= foundProduct.id %>">
+
+  <form id="frmNewProduct" class="frmNewProduct">
+    <div class="cntField">
+      <label class="lbl" for="txtDescription">Descripcion de producto:</label>
+      <input class="input" type="text" name="description" id="txtDescription" value="<%= foundProduct.description %>">
+    </div>
+    <div class="cntField">
+      <label class="lbl" for="txtBrand">Marca de producto:</label>
+      <input class="input" type="text" name="brand" id="txtBrand" value="<%= foundProduct.brand %>">
+    </div>
+    <div class="cntField">
+      <label class="lbl" for="txtStock">Stock de producto:</label>
+      <input class="input" type="number" name="stock" id="txtStock" value="<%= foundProduct.amount %>">
+    </div>
+    <div class="cntField">
+      <label class="lbl" for="txtPriceWNIva">Precio sin IVA:</label>
+      <input class="input" type="number" name="priceWNIva" id="txtPriceWNIva" value="<%= foundProduct.priceWNIva %>">
+    </div>
+    <button id="btnEnviar" class="btn">Modificar Producto</button>
+  </form>
+
+  <script src="/js/modifyProduct.js"></script>
+</body>
+</html>

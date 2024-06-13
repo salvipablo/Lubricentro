@@ -53,3 +53,59 @@ export const SaveProduct = async (req, res) => {
     res.status(500).json({ message: messageError })
   }
 }
+
+export const PageModifyProduct = async (req, res) => {
+  try {
+    const { id  } = req.params
+
+    const foundProduct = await ProductSchema.findOne({ where: { id } })
+
+    if (!foundProduct) throw new Error('Product does not exist in the database')
+
+    let dataPage = {
+      dataStatic,
+      foundProduct
+    }
+
+    res.render('modifyProduct', dataPage)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
+
+export const ModifyProduct = async (req, res) => {
+  try {
+    const { id, description, brand, stock, priceWNIva } = req.body
+
+    console.log(id);
+    console.log(description);
+    console.log(brand);
+    console.log(stock);
+    console.log(priceWNIva);
+
+    const updateProduct = await ProductSchema.update(
+      {
+        description,
+        brand,
+        stock,
+        priceWNIva
+      },
+      {
+        where: {
+          id: id
+        },
+      },
+    );
+
+    if (!updateProduct) throw new Error('Product does not exist in the database')
+
+    res.status(201).json({ message: "Product modified successfully" })
+  } catch (error) {
+    let messageError = ''
+
+    if (!error.errors) messageError = error.message
+    else messageError = error.errors[0].message
+
+    res.status(500).json({ message: messageError })
+  }
+}
