@@ -5,6 +5,7 @@ import morgan from "morgan";
 
 import productsRouter from "./routes/products.routes.js"
 import loginRouter from "./routes/login.routes.js"
+import SalesRouter from "./routes/sales.routes.js"
 
 const app = express();
 
@@ -23,5 +24,6 @@ app.use(express.static(join(__dirname, 'public')))
 // Routes.
 app.use('/', loginRouter)
 app.use('/products', productsRouter)
+app.use('/sales', SalesRouter)
 
 export default app
