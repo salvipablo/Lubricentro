@@ -33,7 +33,6 @@ export const SaveProduct = async (req, res) => {
     const { description, brand, stock, priceWNIva } = req.body
 
     let newProduct = {
-      id: 11,
       description: description,
       brand: brand,
       amount: stock,
