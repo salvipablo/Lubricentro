@@ -1,4 +1,3 @@
-import e from "express";
 import { ProductSchema } from "../models/products.js";
 
 let dataStatic = {
@@ -34,7 +33,7 @@ export const SaveProduct = async (req, res) => {
     const { description, brand, stock, priceWNIva } = req.body
 
     let newProduct = {
-      id: 10,
+      id: 11,
       description: description,
       brand: brand,
       amount: stock,
@@ -76,12 +75,6 @@ export const PageModifyProduct = async (req, res) => {
 export const ModifyProduct = async (req, res) => {
   try {
     const { id, description, brand, stock, priceWNIva } = req.body
-
-    console.log(id);
-    console.log(description);
-    console.log(brand);
-    console.log(stock);
-    console.log(priceWNIva);
 
     const updateProduct = await ProductSchema.update(
       {

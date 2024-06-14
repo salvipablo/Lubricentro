@@ -34,19 +34,21 @@
         <th class="tableData-th6 borderRow">Editar</th>
         <th class="tableData-th7 borderRow">Eliminar</th>
       </tr>
-      <% products.forEach(function(product){ %>
+      <% products.forEach(function(product) { %>
         <tr class="tableData-row">
-          <td class="tabledata-cell borderRow center"><%- product.id  %></td>
-          <td class="tabledata-cell borderRow"><%- product.description  %></td>
-          <td class="tabledata-cell borderRow center"><%- product.brand  %></td>
-          <td class="tabledata-cell borderRow center"><%- product.amount  %></td>
-          <td class="tabledata-cell borderRow center">$&nbsp;<%- product.priceWNIva  %></td>
+          <td class="tabledata-cell borderRow center"><%- product.id %></td>
+          <td class="tabledata-cell borderRow"><%- product.description %></td>
+          <td class="tabledata-cell borderRow center"><%- product.brand %></td>
+          <td class="tabledata-cell borderRow center"><%- product.amount %></td>
+          <td class="tabledata-cell borderRow center">$&nbsp;<%- product.priceWNIva %></td>
           <td class="tabledata-cell borderRow center">
-            <a href="http://localhost:3002/products/modifyProduct/<%- product.id  %>">
+            <a href="http://localhost:3002/products/modifyProduct/<%- product.id %>">
               <img class="imgModify" src="/images/pen.png" alt="Mod">
             </a>
           </td>
-          <td class="tabledata-cell borderRow center"><img class="imgDelete" src="/images/remove.png" alt="Del"></td>
+          <td class="tabledata-cell borderRow center">
+            <img class="imgDelete" src="/images/remove.png" alt="Del" id="btnDelete-<%- product.id %>">
+          </td>
         </tr>
       <% }); %>
     </table>
