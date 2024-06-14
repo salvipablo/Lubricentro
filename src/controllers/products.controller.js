@@ -79,7 +79,7 @@ export const ModifyProduct = async (req, res) => {
       {
         description,
         brand,
-        stock,
+        amount: stock,
         priceWNIva
       },
       {
