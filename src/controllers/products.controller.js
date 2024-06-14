@@ -1,4 +1,4 @@
-import { ProductSchema } from "../models/products.js";
+import { ProductSchema } from "../models/products.js"
 
 let dataStatic = {
   tabTitle: "Lubricentro",
@@ -100,5 +100,21 @@ export const ModifyProduct = async (req, res) => {
     else messageError = error.errors[0].message
 
     res.status(500).json({ message: messageError })
+  }
+}
+
+export const DeleteProduct = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    await ProductSchema.destroy({
+      where: {
+        id: id,
+      },
+    });
+
+    res.status(201).json({ message: 'Product deleted sucessfully' })
+  } catch (error) {
+    res.status(500).json({ message: error.message })
   }
 }

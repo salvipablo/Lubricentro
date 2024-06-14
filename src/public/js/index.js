@@ -10,8 +10,21 @@ btnNewProduct.addEventListener('click', async (e) => {
   }
 })
 
-function SendToDeleteProduct(id) {
-  // TODO: Hacer fetch enviando por metodo DELETE, el pedido de eliminar producto.
+async function SendToDeleteProduct(id) {
+  const Request = await fetch(`http://localhost:3002/products/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  });
+
+  const Response = await Request.json()
+
+  if (Response.message === 'Product deleted sucessfully') {
+    alert('Producto eliminado satisfactoriamente')
+    location.reload();
+  }
 }
 
 document.addEventListener('click', (event) => {

@@ -5,7 +5,8 @@ import {
   pageNewProduct,
   SaveProduct,
   PageModifyProduct,
-  ModifyProduct
+  ModifyProduct,
+  DeleteProduct
 } 
 from "../controllers/products.controller.js"
 
@@ -19,4 +20,6 @@ productsRouter.get('/modifyProduct/:id', PageModifyProduct)
 productsRouter.post('/saveProduct', SaveProduct)
 productsRouter.post('/modifyProduct/', ModifyProduct)
 
-export default productsRouter;
+productsRouter.delete('/:id', DeleteProduct)
+
+export default productsRouter
