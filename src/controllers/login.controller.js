@@ -1,10 +1,10 @@
-import { UserSchema } from "../models/user.js";
+import { UserSchema } from '../models/user.js'
 
 export const Login = async (req, res) => {
   try {
-    const { username, password  } = req.body
+    const { username, password } = req.body
 
-    const foundUser = await UserSchema.findOne({ where: { username: username } })
+    const foundUser = await UserSchema.findOne({ where: { username } })
 
     if (!foundUser) throw new Error('User not found')
 
@@ -16,12 +16,12 @@ export const Login = async (req, res) => {
   }
 }
 
-export const SaveUser = async(req, res) => {
+export const SaveUser = async (req, res) => {
   try {
     const { username, password } = req.body
 
-    let newUser = {
-      username, 
+    const newUser = {
+      username,
       password
     }
 

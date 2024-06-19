@@ -1,21 +1,20 @@
-import { Router } from "express"
-
-const loginRouter = Router()
+import { Router } from 'express'
 
 import {
   Login,
   SaveUser,
   GetUsers
-} 
-from "../controllers/login.controller.js"
+} from '../controllers/login.controller.js'
 
-let dataStatic = {
-  tabTitle: "Lubricentro",
-  mainTitle: "Lubricentro Carlitos",
+const loginRouter = Router()
+
+const dataStatic = {
+  tabTitle: 'Lubricentro',
+  mainTitle: 'Lubricentro Carlitos'
 }
 
 loginRouter.get('/', (_req, res) => {
-  let dataPage = {
+  const dataPage = {
     dataStatic
   }
 

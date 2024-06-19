@@ -7,7 +7,7 @@ const TxtUserName = document.getElementById('txtUserName')
 const TxtPassword = document.getElementById('txtPassword')
 
 LinkLogin.addEventListener('click', () => {
-  FrmLogin.classList.remove ('closeFrmLogin')
+  FrmLogin.classList.remove('closeFrmLogin')
 })
 
 IconClose.addEventListener('click', () => {
@@ -17,28 +17,28 @@ IconClose.addEventListener('click', () => {
 BtnLogin.addEventListener('click', async (e) => {
   e.preventDefault()
 
-  let username = TxtUserName.value
-  let password = TxtPassword.value
+  const username = TxtUserName.value
+  const password = TxtPassword.value
 
-  if (username === '' || password === '') alert('Falta ingresar datos...')
+  if (username === '' || password === '') document.alert('Falta ingresar datos...')
   else {
     const DataToSend = {
       username,
-      password,
-    };
+      password
+    }
 
     const Request = await fetch('http://localhost:3002/login', {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(DataToSend)
-    });
-  
+    })
+
     const Response = await Request.json()
 
-    if (Response.message === 'Accepted user') window.location.href = "http://localhost:3002/products";
-    else alert(Response.error)
+    if (Response.message === 'Accepted user') window.location.href = 'http://localhost:3002/products'
+    else document.alert(Response.error)
   }
 })

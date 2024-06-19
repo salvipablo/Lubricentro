@@ -1,15 +1,15 @@
-import { ProductSchema } from "../models/products.js"
+import { ProductSchema } from '../models/products.js'
 
-let dataStatic = {
-  tabTitle: "Lubricentro",
-  mainTitle: "Lubricentro Carlitos",
+const dataStatic = {
+  tabTitle: 'Lubricentro',
+  mainTitle: 'Lubricentro Carlitos'
 }
 
 export const GetProducts = async (_req, res) => {
   try {
     const products = await ProductSchema.findAll()
 
-    let dataPage = {
+    const dataPage = {
       dataStatic,
       products
     }
@@ -21,7 +21,7 @@ export const GetProducts = async (_req, res) => {
 }
 
 export const pageNewProduct = (_req, res) => {
-  let dataPage = {
+  const dataPage = {
     dataStatic
   }
 
@@ -32,16 +32,16 @@ export const SaveProduct = async (req, res) => {
   try {
     const { description, brand, stock, priceWNIva } = req.body
 
-    let newProduct = {
-      description: description,
-      brand: brand,
+    const newProduct = {
+      description,
+      brand,
       amount: stock,
-      priceWNIva: priceWNIva
+      priceWNIva
     }
 
     await ProductSchema.create(newProduct)
 
-    res.status(201).json({ message: "Save register sucesfully" })
+    res.status(201).json({ message: 'Save register sucesfully' })
   } catch (error) {
     let messageError = ''
 
@@ -54,13 +54,13 @@ export const SaveProduct = async (req, res) => {
 
 export const PageModifyProduct = async (req, res) => {
   try {
-    const { id  } = req.params
+    const { id } = req.params
 
     const foundProduct = await ProductSchema.findOne({ where: { id } })
 
     if (!foundProduct) throw new Error('Product does not exist in the database')
 
-    let dataPage = {
+    const dataPage = {
       dataStatic,
       foundProduct
     }
@@ -84,14 +84,14 @@ export const ModifyProduct = async (req, res) => {
       },
       {
         where: {
-          id: id
-        },
-      },
-    );
+          id
+        }
+      }
+    )
 
     if (!updateProduct) throw new Error('Product does not exist in the database')
 
-    res.status(201).json({ message: "Product modified successfully" })
+    res.status(201).json({ message: 'Product modified successfully' })
   } catch (error) {
     let messageError = ''
 
@@ -108,9 +108,9 @@ export const DeleteProduct = async (req, res) => {
 
     await ProductSchema.destroy({
       where: {
-        id: id,
-      },
-    });
+        id
+      }
+    })
 
     res.status(201).json({ message: 'Product deleted sucessfully' })
   } catch (error) {

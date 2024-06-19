@@ -1,18 +1,20 @@
-import { SaleSchema } from "../models/sale.js";
+import { SaleSchema } from '../models/sale.js'
 
-let dataStatic = {
-  tabTitle: "Lubricentro",
-  mainTitle: "Lubricentro Carlitos",
+const dataStatic = {
+  tabTitle: 'Lubricentro',
+  mainTitle: 'Lubricentro Carlitos'
 }
 
 export const GetSales = async (_req, res) => {
   try {
     const sales = await SaleSchema.findAll()
 
-    // let dataPage = {
-    //   dataStatic,
-    //   products
-    // }
+    const dataPage = {
+      dataStatic,
+      sales
+    }
+
+    console.log(dataPage)
 
     res.status(200).json({ message: sales })
     // res.render('index', dataPage)
@@ -29,7 +31,7 @@ export const SaveSale = async (req, res) => {
     const endPriceCalculate = endPriceSale * amount
     const revenueCalculate = endPriceCalculate - priceWIVACalculate
 
-    let newSale = {
+    const newSale = {
       description: descriptionProduct,
       amountSales: amount,
       priceWIVA: priceWIVACalculate,
@@ -39,7 +41,7 @@ export const SaveSale = async (req, res) => {
 
     await SaleSchema.create(newSale)
 
-    res.status(201).json({ message: "Save register sucesfully" })
+    res.status(201).json({ message: 'Save register sucesfully' })
   } catch (error) {
     let messageError = ''
 

@@ -1,14 +1,13 @@
-import { Router } from "express"
+import { Router } from 'express'
 
-import { 
+import {
   GetProducts,
   pageNewProduct,
   SaveProduct,
   PageModifyProduct,
   ModifyProduct,
   DeleteProduct
-} 
-from "../controllers/products.controller.js"
+} from '../controllers/products.controller.js'
 
 const productsRouter = Router()
 

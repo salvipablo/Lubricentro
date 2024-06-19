@@ -1,10 +1,9 @@
-import { Router } from "express"
+import { Router } from 'express'
 
 import {
   GetSales,
   SaveSale
-}
-from "../controllers/sales.controller.js"
+} from '../controllers/sales.controller.js'
 
 const SalesRouter = Router()
 

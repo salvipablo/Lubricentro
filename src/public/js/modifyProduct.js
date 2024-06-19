@@ -12,13 +12,13 @@ const DataToSend = {
   brand: '',
   stock: 0,
   priceWNIva: 0
-};
+}
 
-function VerifyEnteredData() {
-  let description = TxtDescription.value
-  let brand = TxtBrand.value
-  let stock = TxtStock.value
-  let priceWNIva = TxtPriceWNIva.value
+function VerifyEnteredData () {
+  const description = TxtDescription.value
+  const brand = TxtBrand.value
+  const stock = TxtStock.value
+  const priceWNIva = TxtPriceWNIva.value
 
   if (description === '' || brand === '' || stock === '' || priceWNIva === '') return false
 
@@ -31,17 +31,17 @@ function VerifyEnteredData() {
   return true
 }
 
-async function sendData() {
-  console.log("sendData de modifyProduct");
+async function sendData () {
+  console.log('sendData de modifyProduct')
 
   const Request = await fetch('http://localhost:3002/products/modifyProduct', {
     method: 'POST',
     headers: {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(DataToSend)
-  });
+  })
 
   const Response = await Request.json()
 
@@ -53,11 +53,11 @@ BtnEnviar.addEventListener('click', async (e) => {
 
   const dataOk = VerifyEnteredData()
 
-  if (!dataOk) alert('Le falto cargar datos!!')
+  if (!dataOk) document.alert('Le falto cargar datos!!')
   else {
     const message = await sendData()
-    alert(message)
+    document.alert(message)
 
-    if (message === 'Product modified successfully') window.location.href = "http://localhost:3002/products";
+    if (message === 'Product modified successfully') window.location.href = 'http://localhost:3002/products'
   }
 })

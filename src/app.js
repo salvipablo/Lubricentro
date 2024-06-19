@@ -1,13 +1,13 @@
-import express from "express"
+import express from 'express'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import morgan from "morgan";
+import morgan from 'morgan'
 
-import productsRouter from "./routes/products.routes.js"
-import loginRouter from "./routes/login.routes.js"
-import SalesRouter from "./routes/sales.routes.js"
+import productsRouter from './routes/products.routes.js'
+import loginRouter from './routes/login.routes.js'
+import SalesRouter from './routes/sales.routes.js'
 
-const app = express();
+const app = express()
 
 // Define the system path.
 const __dirname = dirname(fileURLToPath(import.meta.url))
