@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/general.css">
+  <link rel="stylesheet" href="/stylesheets/sales.css">
+  <link rel="stylesheet" href="stylesheets/table-material.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/images/oiler.png" type="image/x-icon">
+
+  <title><%= dataStatic.tabTitle %></title>
+</head>
+<body>
+
+  <h1 class="mainTitle"><%= dataStatic.mainTitle %></h1>
+
+  <div class="tableContainer">
+    <table class="tableData">
+      <tr class="tableData-row">
+        <th class="tableData-th1 borderRow">ID</th>
+        <th class="tableData-th2 borderRow">Descripcion</th>
+        <th class="tableData-th3 borderRow">Cantidad</th>
+        <th class="tableData-th4 borderRow">Precio con IVA</th>
+        <th class="tableData-th5 borderRow">Precio Final</th>
+        <th class="tableData-th6 borderRow">Ganancia</th>
+        <th class="tableData-th7 borderRow">Eliminar</th>
+      </tr>
+      <% sales.forEach(function(sale) { %>
+        <tr class="tableData-row">
+          <td class="tabledata-cell borderRow center"><%- sale.id %></td>
+          <td class="tabledata-cell borderRow"><%- sale.description %></td>
+          <td class="tabledata-cell borderRow center"><%- sale.amountSales %></td>
+          <td class="tabledata-cell borderRow center"><%- sale.priceWIVA %></td>
+          <td class="tabledata-cell borderRow center">$&nbsp;<%- sale.endPrice %></td>
+          <td class="tabledata-cell borderRow center">$&nbsp;<%- sale.revenue %></td>
+          <td class="tabledata-cell borderRow center">
+            <img class="imgDelete" src="/images/remove.png" alt="Del" id="btnDelete-<%- sale.id %>">
+          </td>
+        </tr>
+      <% }); %>
+    </table>
+  </div>
+
+  <script src="/js/sales.js"></script>
+</body>
+</html>

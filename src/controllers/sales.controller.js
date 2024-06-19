@@ -16,8 +16,7 @@ export const GetSales = async (_req, res) => {
 
     console.log(dataPage)
 
-    res.status(200).json({ message: sales })
-    // res.render('index', dataPage)
+    res.render('sales', dataPage)
   } catch (error) {
     res.status(500).json({ error: error.message })
   }
@@ -28,7 +27,7 @@ export const SaveSale = async (req, res) => {
     const { descriptionProduct, amount, costPrice, endPriceSale } = req.body
 
     const priceWIVACalculate = (costPrice + (costPrice * 21 / 100)) * amount
-    const endPriceCalculate = endPriceSale * amount
+    const endPriceCalculate = endPriceSale
     const revenueCalculate = endPriceCalculate - priceWIVACalculate
 
     const newSale = {
