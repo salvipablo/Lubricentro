@@ -20,7 +20,7 @@ BtnLogin.addEventListener('click', async (e) => {
   const username = TxtUserName.value
   const password = TxtPassword.value
 
-  if (username === '' || password === '') document.alert('Falta ingresar datos...')
+  if (username === '' || password === '') window.alert('Falta ingresar datos...')
   else {
     const DataToSend = {
       username,
@@ -39,6 +39,6 @@ BtnLogin.addEventListener('click', async (e) => {
     const Response = await Request.json()
 
     if (Response.message === 'Accepted user') window.location.href = 'http://localhost:3002/products'
-    else document.alert(Response.error)
+    else window.alert(Response.error)
   }
 })

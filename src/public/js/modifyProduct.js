@@ -53,10 +53,10 @@ BtnEnviar.addEventListener('click', async (e) => {
 
   const dataOk = VerifyEnteredData()
 
-  if (!dataOk) document.alert('Le falto cargar datos!!')
+  if (!dataOk) window.alert('Le falto cargar datos!!')
   else {
     const message = await sendData()
-    document.alert(message)
+    window.alert(message)
 
     if (message === 'Product modified successfully') window.location.href = 'http://localhost:3002/products'
   }

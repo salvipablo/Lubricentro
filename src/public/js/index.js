@@ -6,7 +6,7 @@ btnNewProduct.addEventListener('click', async (e) => {
 
     window.location.href = reqNewProuct.url
   } catch (error) {
-    document.alert(`Error: ${error.message}`)
+    window.alert(`Error: ${error.message}`)
   }
 })
 
@@ -22,7 +22,7 @@ async function SendToDeleteProduct (id) {
   const Response = await Request.json()
 
   if (Response.message === 'Product deleted sucessfully') {
-    document.alert('Producto eliminado satisfactoriamente')
+    window.alert('Producto eliminado satisfactoriamente')
     window.location.reload()
   }
 }
