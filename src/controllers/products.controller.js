@@ -2,7 +2,7 @@ import { ProductSchema } from '../models/products.js'
 
 const dataStatic = {
   tabTitle: 'Lubricentro',
-  mainTitle: 'Lubricentro Carlitos'
+  mainTitle: 'Productos'
 }
 
 export const GetProducts = async (_req, res) => {

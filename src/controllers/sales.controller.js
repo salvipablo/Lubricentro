@@ -2,7 +2,7 @@ import { SaleSchema } from '../models/sale.js'
 
 const dataStatic = {
   tabTitle: 'Lubricentro',
-  mainTitle: 'Lubricentro Carlitos'
+  mainTitle: 'Ventas'
 }
 
 export const GetSales = async (_req, res) => {

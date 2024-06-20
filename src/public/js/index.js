@@ -1,4 +1,11 @@
 const btnNewProduct = document.getElementById('btnNewProduct')
+const boton = document.querySelector('#boton')
+const menu = document.querySelector('#menu')
+
+boton.addEventListener('click', () => {
+  console.log('click')
+  menu.classList.toggle('hidden')
+})
 
 btnNewProduct.addEventListener('click', async (e) => {
   try {

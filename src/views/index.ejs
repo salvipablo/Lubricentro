@@ -6,9 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/stylesheets/general.css">
-  <link rel="stylesheet" href="/stylesheets/index.css">
-  <link rel="stylesheet" href="stylesheets/table-material.css">
+  <link rel="stylesheet" href="./stylesheets/general.css">
+  <link rel="stylesheet" href="./stylesheets/index.css">
+  <link rel="stylesheet" href="./stylesheets/table-material.css">
+
+  <!-- TailwindCSS -->
+  <link rel="stylesheet" href="./stylesheets/output.css">
+
+  <!-- Font Awesone -->
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="/images/oiler.png" type="image/x-icon">
@@ -17,11 +23,32 @@
 </head>
 <body>
 
-  <h1 class="mainTitle"><%= dataStatic.mainTitle %></h1>
+  <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <i class="fa fa-cog fa-fw"></i>
+      <span class="font-semibold text-xl tracking-tight">Lubricentro</span>
+    </div>
+    <div class="block lg:hidden">
+      <button id='boton' class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+      </button>
+    </div>
+    <div id='menu' class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="text-sm lg:flex-grow">
+        <a href="http://localhost:3002/products" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Productos
+        </a>
+        <a href="http://localhost:3002/sales" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Ventas
+        </a>
+      </div>
+      <div>
+        <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0" id="btnNewProduct">Nuevo Producto</a>
+      </div>
+    </div>
+  </nav>
 
-  <section>
-    <button id="btnNewProduct">Nuevo Proucto</button>
-  </section>
+  <h1 class="my-2 font-bold text-center uppercase"><%= dataStatic.mainTitle %></h1>
 
   <div class="tableContainer">
     <table class="tableData">
