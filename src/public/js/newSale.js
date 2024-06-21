@@ -1,32 +1,29 @@
 const BtnEnviar = document.getElementById('btnEnviar')
 
-const IdProduct = document.getElementById('idProduct')
 const TxtDescription = document.getElementById('txtDescription')
-const TxtBrand = document.getElementById('txtBrand')
-const TxtStock = document.getElementById('txtStock')
+const TxtAmount = document.getElementById('txtAmount')
 const TxtPriceWNIva = document.getElementById('txtPriceWNIva')
+const TxtEndPrice = document.getElementById('txtEndPrice')
 
 const DataToSend = {
-  id: 0,
-  description: '',
-  brand: '',
-  stock: 0,
-  priceWNIva: 0
+  descriptionProduct: '',
+  amount: 0,
+  costPrice: 0,
+  endPriceSale: 0
 }
 
 function VerifyEnteredData () {
   const description = TxtDescription.value
-  const brand = TxtBrand.value
-  const stock = TxtStock.value
+  const amount = TxtAmount.value
   const priceWNIva = TxtPriceWNIva.value
+  const endPrice = TxtEndPrice.value
 
-  if (description === '' || brand === '' || stock === '' || priceWNIva === '') return false
+  if (description === '' || amount === '' || priceWNIva === '' || endPrice === '') return false
 
-  DataToSend.id = parseInt(IdProduct.value)
-  DataToSend.description = description
-  DataToSend.brand = brand
-  DataToSend.stock = parseInt(stock)
-  DataToSend.priceWNIva = parseFloat(priceWNIva)
+  DataToSend.descriptionProduct = description
+  DataToSend.amount = parseInt(amount)
+  DataToSend.costPrice = parseFloat(priceWNIva)
+  DataToSend.endPriceSale = parseFloat(endPrice)
 
   return true
 }
@@ -34,7 +31,7 @@ function VerifyEnteredData () {
 async function sendData () {
   console.log('sendData de modifyProduct')
 
-  const Request = await fetch('http://localhost:3002/products/modifyProduct', {
+  const Request = await fetch('http://localhost:3002/sales', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -58,6 +55,6 @@ BtnEnviar.addEventListener('click', async (e) => {
     const message = await sendData()
     window.alert(message)
 
-    if (message === 'Product modified successfully') window.location.href = 'http://localhost:3002/products'
+    if (message === 'Sale successfully completed') window.location.href = 'http://localhost:3002/sales'
   }
 })

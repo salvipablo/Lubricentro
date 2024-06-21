@@ -2,7 +2,8 @@ import { Router } from 'express'
 
 import {
   GetSales,
-  SaveSale
+  SaveSale,
+  DeleteSale
 } from '../controllers/sales.controller.js'
 
 const SalesRouter = Router()
@@ -10,5 +11,7 @@ const SalesRouter = Router()
 SalesRouter.get('/', GetSales)
 
 SalesRouter.post('/', SaveSale)
+
+SalesRouter.delete('/:id', DeleteSale)
 
 export default SalesRouter

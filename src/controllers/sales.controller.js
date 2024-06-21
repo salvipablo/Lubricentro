@@ -14,8 +14,6 @@ export const GetSales = async (_req, res) => {
       sales
     }
 
-    console.log(dataPage)
-
     res.render('sales', dataPage)
   } catch (error) {
     res.status(500).json({ error: error.message })
@@ -39,7 +37,7 @@ export const SaveSale = async (req, res) => {
 
     await SaleSchema.create(newSale)
 
-    res.status(201).json({ message: 'Save register sucesfully' })
+    res.status(201).json({ message: 'Sale successfully completed' })
   } catch (error) {
     let messageError = ''
 
@@ -47,5 +45,21 @@ export const SaveSale = async (req, res) => {
     else messageError = error.errors[0].message
 
     res.status(500).json({ message: messageError })
+  }
+}
+
+export const DeleteSale = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    await SaleSchema.destroy({
+      where: {
+        id
+      }
+    })
+
+    res.status(201).json({ message: 'Sale deleted sucessfully' })
+  } catch (error) {
+    res.status(500).json({ message: error.message })
   }
 }

@@ -1,17 +1,5 @@
-const btnNewProduct = document.getElementById('btnNewProduct')
-
-btnNewProduct.addEventListener('click', async (e) => {
-  try {
-    const reqNewProuct = await fetch('http://localhost:3002/products/newProduct')
-
-    window.location.href = reqNewProuct.url
-  } catch (error) {
-    window.alert(`Error: ${error.message}`)
-  }
-})
-
-async function SendToDeleteProduct (id) {
-  const Request = await fetch(`http://localhost:3002/products/${id}`, {
+async function SendToDeleteSale (id) {
+  const Request = await fetch(`http://localhost:3002/sales/${id}`, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
@@ -21,8 +9,8 @@ async function SendToDeleteProduct (id) {
 
   const Response = await Request.json()
 
-  if (Response.message === 'Product deleted sucessfully') {
-    window.alert('Producto eliminado satisfactoriamente')
+  if (Response.message === 'Sale deleted sucessfully') {
+    window.alert('Venta eliminada satisfactoriamente')
     window.location.reload()
   }
 }
@@ -32,6 +20,6 @@ document.addEventListener('click', (event) => {
 
   if (clickedElement.id && clickedElement.id.substring(0, 9) === 'btnDelete') {
     const id = clickedElement.id.substring(10)
-    SendToDeleteProduct(id)
+    SendToDeleteSale(id)
   }
 })
