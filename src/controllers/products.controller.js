@@ -60,12 +60,35 @@ export const PageModifyProduct = async (req, res) => {
 
     if (!foundProduct) throw new Error('Product does not exist in the database')
 
+    dataStatic.mainTitle = 'Modificar Producto'
+
     const dataPage = {
       dataStatic,
       foundProduct
     }
 
     res.render('modifyProduct', dataPage)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
+
+export const PageNewSaleProduct = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    const foundProduct = await ProductSchema.findOne({ where: { id } })
+
+    if (!foundProduct) throw new Error('Product does not exist in the database')
+
+    dataStatic.mainTitle = 'Nueva Venta'
+
+    const dataPage = {
+      dataStatic,
+      foundProduct
+    }
+
+    res.render('newSale', dataPage)
   } catch (error) {
     res.status(500).json({ error: error.message })
   }

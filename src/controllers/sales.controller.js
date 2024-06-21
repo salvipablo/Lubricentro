@@ -27,14 +27,13 @@ export const SaveSale = async (req, res) => {
     const { descriptionProduct, amount, costPrice, endPriceSale } = req.body
 
     const priceWIVACalculate = (costPrice + (costPrice * 21 / 100)) * amount
-    const endPriceCalculate = endPriceSale
-    const revenueCalculate = endPriceCalculate - priceWIVACalculate
+    const revenueCalculate = endPriceSale - priceWIVACalculate
 
     const newSale = {
       description: descriptionProduct,
       amountSales: amount,
       priceWIVA: priceWIVACalculate,
-      endPrice: endPriceCalculate,
+      endPrice: endPriceSale,
       revenue: revenueCalculate
     }
 

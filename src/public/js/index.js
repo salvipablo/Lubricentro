@@ -41,4 +41,10 @@ document.addEventListener('click', (event) => {
     const id = clickedElement.id.substring(10)
     SendToDeleteProduct(id)
   }
+
+  if (clickedElement.id && clickedElement.id.substring(0, 7) === 'btnSale') {
+    const id = clickedElement.id.substring(8)
+    console.log(id)
+    // SendToDeleteProduct(id)
+  }
 })

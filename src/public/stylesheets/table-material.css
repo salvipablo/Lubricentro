@@ -59,6 +59,7 @@
 
 .center {
   text-align: center;
+  margin: auto;
 }
 
 .tableData-row:hover {

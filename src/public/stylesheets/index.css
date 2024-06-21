@@ -2,6 +2,7 @@
   text-align: center;
 }
 
-.imgModify, .imgDelete {
+.imgModify, .imgDelete, .imgSale {
   width: 20px;
+  margin: auto;
 }

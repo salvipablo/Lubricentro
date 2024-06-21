@@ -48,7 +48,7 @@
     </div>
   </nav>
 
-  <h1 class="my-2 font-bold text-center uppercase"><%= dataStatic.mainTitle %></h1>
+  <h1 class="my-6 font-bold text-center uppercase font-serif text-xl"><%= dataStatic.mainTitle %></h1>
 
   <div class="tableContainer">
     <table class="tableData">
@@ -60,6 +60,7 @@
         <th class="tableData-th5 borderRow">Precio sin IVA</th>
         <th class="tableData-th6 borderRow">Editar</th>
         <th class="tableData-th7 borderRow">Eliminar</th>
+        <th class="tableData-th7 borderRow">Vender</th>
       </tr>
       <% products.forEach(function(product) { %>
         <tr class="tableData-row">
@@ -70,13 +71,18 @@
           <td class="tabledata-cell borderRow center">$&nbsp;<%- product.priceWNIva %></td>
           <td class="tabledata-cell borderRow center">
             <a href="http://localhost:3002/products/modifyProduct/<%- product.id %>">
-              <img class="imgModify" src="/images/pen.png" alt="Mod">
+              <img class="imgModify" src="/images/pen.png" alt="Modify">
             </a>
           </td>
           <td class="tabledata-cell borderRow center">
-            <img class="imgDelete" src="/images/remove.png" alt="Del" id="btnDelete-<%- product.id %>">
+            <img class="imgDelete" src="/images/remove.png" alt="Delete" id="btnDelete-<%- product.id %>">
           </td>
-        </tr>
+          <td class="tabledata-cell borderRow center">
+            <a href="http://localhost:3002/products/newSale/<%- product.id %>">
+              <img class="imgSale" src="/images/revenue.png" alt="Sale">
+            </a>
+          </td>
+      </tr>
       <% }); %>
     </table>
   </div>
