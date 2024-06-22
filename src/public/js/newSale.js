@@ -1,11 +1,13 @@
 const BtnEnviar = document.getElementById('btnEnviar')
 
+const IdProduct = document.getElementById('idProduct')
 const TxtDescription = document.getElementById('txtDescription')
 const TxtAmount = document.getElementById('txtAmount')
 const TxtPriceWNIva = document.getElementById('txtPriceWNIva')
 const TxtEndPrice = document.getElementById('txtEndPrice')
 
 const DataToSend = {
+  id: 0,
   descriptionProduct: '',
   amount: 0,
   costPrice: 0,
@@ -20,6 +22,7 @@ function VerifyEnteredData () {
 
   if (description === '' || amount === '' || priceWNIva === '' || endPrice === '') return false
 
+  DataToSend.id = parseInt(IdProduct.value)
   DataToSend.descriptionProduct = description
   DataToSend.amount = parseInt(amount)
   DataToSend.costPrice = parseFloat(priceWNIva)

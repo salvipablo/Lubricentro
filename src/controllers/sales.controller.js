@@ -1,4 +1,5 @@
 import { SaleSchema } from '../models/sale.js'
+import { DiscountStock } from '../services/products.services.js'
 
 const dataStatic = {
   tabTitle: 'Lubricentro',
@@ -22,7 +23,7 @@ export const GetSales = async (_req, res) => {
 
 export const SaveSale = async (req, res) => {
   try {
-    const { descriptionProduct, amount, costPrice, endPriceSale } = req.body
+    const { id, descriptionProduct, amount, costPrice, endPriceSale } = req.body
 
     const priceWIVACalculate = (costPrice + (costPrice * 21 / 100)) * amount
     const revenueCalculate = endPriceSale - priceWIVACalculate
@@ -36,6 +37,8 @@ export const SaveSale = async (req, res) => {
     }
 
     await SaleSchema.create(newSale)
+
+    DiscountStock(id, amount)
 
     res.status(201).json({ message: 'Sale successfully completed' })
   } catch (error) {
