@@ -4,7 +4,8 @@
 }
 
 body {
-  background-color: #333333;
+  background: rgb(63,59,121);
+  background: linear-gradient(90deg, rgba(63,59,121,1) 0%, rgba(127,143,147,1) 100%); 
   color: #faebd7;
   font-family: sans-serif;
 }

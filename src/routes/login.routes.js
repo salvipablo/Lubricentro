@@ -25,6 +25,6 @@ loginRouter.get('/users', GetUsers)
 
 loginRouter.post('/login', Login)
 
-loginRouter.post('/saveUser', SaveUser)
+loginRouter.post('/users', SaveUser)
 
 export default loginRouter
