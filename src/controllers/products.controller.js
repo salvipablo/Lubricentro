@@ -9,6 +9,8 @@ export const GetProducts = async (_req, res) => {
   try {
     const products = await ProductSchema.findAll()
 
+    dataStatic.mainTitle = 'Productos'
+
     const dataPage = {
       dataStatic,
       products
@@ -21,6 +23,8 @@ export const GetProducts = async (_req, res) => {
 }
 
 export const pageNewProduct = (_req, res) => {
+  dataStatic.mainTitle = 'Nuevo Producto'
+
   const dataPage = {
     dataStatic
   }
