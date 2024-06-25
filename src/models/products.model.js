@@ -19,6 +19,12 @@ export const ProductSchema = sequelize.define('products', {
   },
   priceWNIva: {
     type: DataTypes.DOUBLE
+  },
+  stockNotice: {
+    type: DataTypes.INTEGER
+  },
+  stockAlarm: {
+    type: DataTypes.INTEGER
   }
 }, {
   timestamps: false

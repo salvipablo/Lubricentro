@@ -67,7 +67,15 @@
           <td class="tabledata-cell borderRow center"><%- product.id %></td>
           <td class="tabledata-cell borderRow"><%- product.description %></td>
           <td class="tabledata-cell borderRow center"><%- product.brand %></td>
-          <td class="tabledata-cell borderRow center"><%- product.amount %></td>
+          <% if(product.amount > product.stockNotice){ %>
+            <td class="tabledata-cell borderRow center"><%- product.amount %></td>
+          <% } else{ %>  
+            <% if(product.amount <= product.stockAlarm){ %>
+              <td class="tabledata-cell borderRow center stockAlarm"><%- product.amount %></td>
+            <% } else{ %>
+              <td class="tabledata-cell borderRow center stockNotice"><%- product.amount %></td>
+            <% } %>
+          <% } %>
           <td class="tabledata-cell borderRow center">$&nbsp;<%- product.priceWNIva %></td>
           <td class="tabledata-cell borderRow center">
             <a href="http://localhost:3002/products/modifyProduct/<%- product.id %>">

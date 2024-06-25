@@ -1,4 +1,4 @@
-import { SaleSchema } from '../models/sale.js'
+import { SaleSchema } from '../models/sale.model.js'
 import { DiscountStock } from '../services/products.services.js'
 
 const dataStatic = {

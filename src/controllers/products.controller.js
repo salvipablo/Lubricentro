@@ -1,4 +1,4 @@
-import { ProductSchema } from '../models/products.js'
+import { ProductSchema } from '../models/products.model.js'
 
 const dataStatic = {
   tabTitle: 'Lubricentro',
@@ -30,13 +30,15 @@ export const pageNewProduct = (_req, res) => {
 
 export const SaveProduct = async (req, res) => {
   try {
-    const { description, brand, stock, priceWNIva } = req.body
+    const { description, brand, stock, priceWNIva, stockNotice, stockAlarm } = req.body
 
     const newProduct = {
       description,
       brand,
       amount: stock,
-      priceWNIva
+      priceWNIva,
+      stockNotice,
+      stockAlarm
     }
 
     await ProductSchema.create(newProduct)

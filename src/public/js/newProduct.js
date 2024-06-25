@@ -4,12 +4,16 @@ const TxtDescription = document.getElementById('txtDescription')
 const TxtBrand = document.getElementById('txtBrand')
 const TxtStock = document.getElementById('txtStock')
 const TxtPriceWNIva = document.getElementById('txtPriceWNIva')
+const TxtStockNotice = document.getElementById('txtStockNotice')
+const TxtStockAlarm = document.getElementById('txtStockAlarm')
 
 const DataToSend = {
   description: '',
   brand: '',
   stock: 0,
-  priceWNIva: 0
+  priceWNIva: 0,
+  stockNotice: 0,
+  stockAlarm: 0
 }
 
 function VerifyEnteredData () {
@@ -17,13 +21,18 @@ function VerifyEnteredData () {
   const brand = TxtBrand.value
   const stock = TxtStock.value
   const priceWNIva = TxtPriceWNIva.value
+  const stockNotice = TxtStockNotice.value
+  const stockAlarm = TxtStockAlarm.value
 
-  if (description === '' || brand === '' || stock === '' || priceWNIva === '') return false
+  if (description === '' || brand === '' || stock === '' ||
+                            priceWNIva === '' || stockNotice === '' || stockAlarm === '') return false
 
   DataToSend.description = description
   DataToSend.brand = brand
   DataToSend.stock = parseInt(stock)
   DataToSend.priceWNIva = parseFloat(priceWNIva)
+  DataToSend.stockNotice = parseInt(stockNotice)
+  DataToSend.stockAlarm = parseInt(stockAlarm)
 
   return true
 }

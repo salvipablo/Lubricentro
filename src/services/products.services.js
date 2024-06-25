@@ -1,4 +1,4 @@
-import { ProductSchema } from '../models/products.js'
+import { ProductSchema } from '../models/products.model.js'
 
 export const DiscountStock = async (id, amountToDiscount) => {
   try {

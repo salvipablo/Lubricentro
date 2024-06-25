@@ -6,3 +6,11 @@
   width: 20px;
   margin: auto;
 }
+
+.stockNotice {
+  background-color: #ce9732;
+}
+
+.stockAlarm {
+  background-color: #bb1c1c;
+}
