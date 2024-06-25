@@ -11,3 +11,15 @@ export const DiscountStock = async (id, amountToDiscount) => {
     return error.message
   }
 }
+
+export const IncreaseStock = async (id, amountToIncrease) => {
+  try {
+    const updateProduct = await ProductSchema.increment({ amount: amountToIncrease }, { where: { id } })
+
+    if (!updateProduct) throw new Error('Stock could not be Increase')
+
+    return 'Successfully discounted stock'
+  } catch (error) {
+    return error.message
+  }
+}

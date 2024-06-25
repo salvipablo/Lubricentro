@@ -1,5 +1,5 @@
 import { SaleSchema } from '../models/sale.model.js'
-import { DiscountStock } from '../services/products.services.js'
+import { DiscountStock, IncreaseStock } from '../services/products.services.js'
 
 const dataStatic = {
   tabTitle: 'Lubricentro',
@@ -23,12 +23,13 @@ export const GetSales = async (_req, res) => {
 
 export const SaveSale = async (req, res) => {
   try {
-    const { id, descriptionProduct, amount, costPrice, endPriceSale } = req.body
+    const { idProduct, descriptionProduct, amount, costPrice, endPriceSale } = req.body
 
     const priceWIVACalculate = (costPrice + (costPrice * 21 / 100)) * amount
     const revenueCalculate = endPriceSale - priceWIVACalculate
 
     const newSale = {
+      idProduct,
       description: descriptionProduct,
       amountSales: amount,
       priceWIVA: priceWIVACalculate,
@@ -38,7 +39,7 @@ export const SaveSale = async (req, res) => {
 
     await SaleSchema.create(newSale)
 
-    DiscountStock(id, amount)
+    DiscountStock(idProduct, amount)
 
     res.status(201).json({ message: 'Sale successfully completed' })
   } catch (error) {
@@ -54,6 +55,20 @@ export const SaveSale = async (req, res) => {
 export const DeleteSale = async (req, res) => {
   try {
     const { id } = req.params
+
+    const getSale = await SaleSchema.findByPk(id)
+
+    if (!getSale) throw new Error('Sale not found')
+
+    const amountIncrease = getSale.amountSales
+    const idProduct = getSale.idProduct
+
+    console.log(`ID de producto: ${idProduct}`)
+    console.log(`Cantidad a aumentar: ${amountIncrease}`)
+
+    const updateIncrease = await IncreaseStock(idProduct, amountIncrease)
+
+    if (updateIncrease === 'Stock could not be Increase') throw new Error('Error when increasing stock')
 
     await SaleSchema.destroy({
       where: {

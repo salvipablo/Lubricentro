@@ -7,7 +7,7 @@ const TxtPriceWNIva = document.getElementById('txtPriceWNIva')
 const TxtEndPrice = document.getElementById('txtEndPrice')
 
 const DataToSend = {
-  id: 0,
+  idProduct: 0,
   descriptionProduct: '',
   amount: 0,
   costPrice: 0,
@@ -22,7 +22,7 @@ function VerifyEnteredData () {
 
   if (description === '' || amount === '' || priceWNIva === '' || endPrice === '') return false
 
-  DataToSend.id = parseInt(IdProduct.value)
+  DataToSend.idProduct = parseInt(IdProduct.value)
   DataToSend.descriptionProduct = description
   DataToSend.amount = parseInt(amount)
   DataToSend.costPrice = parseFloat(priceWNIva)

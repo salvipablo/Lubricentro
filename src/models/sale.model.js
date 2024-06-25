@@ -8,6 +8,9 @@ export const SaleSchema = sequelize.define('sales', {
     primaryKey: true,
     autoIncrement: true
   },
+  idProduct: {
+    type: DataTypes.INTEGER
+  },
   description: {
     type: DataTypes.STRING
   },
