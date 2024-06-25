@@ -102,14 +102,16 @@ export const PageNewSaleProduct = async (req, res) => {
 
 export const ModifyProduct = async (req, res) => {
   try {
-    const { id, description, brand, stock, priceWNIva } = req.body
+    const { id, description, brand, stock, priceWNIva, stockNotice, stockAlarm } = req.body
 
     const updateProduct = await ProductSchema.update(
       {
         description,
         brand,
         amount: stock,
-        priceWNIva
+        priceWNIva,
+        stockNotice,
+        stockAlarm
       },
       {
         where: {

@@ -64,6 +64,14 @@
       <label class="lbl" for="txtPriceWNIva">Precio sin IVA:</label>
       <input class="input" type="number" name="priceWNIva" id="txtPriceWNIva" value="<%= foundProduct.priceWNIva %>">
     </div>
+    <div class="cntField">
+      <label class="lbl" for="txtStockNotice">Stock Aviso:</label>
+      <input class="input" type="number" name="txtStockNotice" id="txtStockNotice" value="<%= foundProduct.stockNotice %>">
+    </div>
+    <div class="cntField">
+      <label class="lbl" for="txtStockAlarm">Stock Alarma:</label>
+      <input class="input" type="number" name="txtStockAlarm" id="txtStockAlarm" value="<%= foundProduct.stockAlarm %>">
+    </div>
     <button id="btnEnviar" class="btn">Modificar Producto</button>
   </form>
 
