@@ -8,5 +8,5 @@ import {
 
 export const sequelize = new Sequelize(DB_DATABASE, '', '', {
   dialect: DB_DIALECT,
-  storage: `${PATH_APP}/database/lubricentro.sqlite`
+  storage: `${PATH_APP}/lubricentro.sqlite`
 })
